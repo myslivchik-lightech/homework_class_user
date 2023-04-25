@@ -1,12 +1,6 @@
 class User:
-    name: str = None
-    age: int = None
-
     def __getitem__(self, item):
-        try:
-            return self.__dict__[item]
-        except:
-            None
+        return self.__dict__.get(item, None)
 
 
 user1 = User()
