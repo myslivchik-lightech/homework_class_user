@@ -1,6 +1,8 @@
 class User:
+    email = "default@example.com"
+
     def __getitem__(self, item):
-        return self.__dict__.get(item, None)
+        return self.__dict__.get(item, self.__class__.__dict__.get(item))
 
 
 user1 = User()
