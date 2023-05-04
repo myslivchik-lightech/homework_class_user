@@ -1,0 +1,49 @@
+Тестовое задание 1
+
+В сервисе имеется список клиентов клиентов, у каждого пользователя есть список адресов доставки.
+Нужно реализовать API для возвращения списка клиентов, у которых заполнены адрес доставки в профиле.
+В АПИ вывести для каждого пользователя список этих адресов.
+В случае если страна доставки более не поддерживается системой (available = False),
+исключить данный адрес из вывода.
+
+Пример моделей данных:
+
+class Client(Model):
+    name = CharField()
+    email = CharField()
+
+class Address(Model):
+    client = ForeignKey(Client)
+    country = ForeignKey(Country)
+    city = CharField()
+    street = CharField()
+    extra = CharField(help_text="дом, квартира, подъезд")
+    zip_code = CharFIeld()
+
+class Country(Model):
+    name = CharField()
+    available = BooleanField()
+
+Формат JSON
+
+[
+  {
+    "name": "John",
+    "email": "john@example.com",
+    "addresses": [
+      {
+        "country": {
+          "id": 10",
+          "name": "Russia"
+        },
+        "city": "Rostov-on-Don",
+        "street": "Sadovay",
+        "extra": "dom 11, kv 29, 2 podezd",
+      },
+      ...
+    ],
+  }
+  ...
+]
+
+

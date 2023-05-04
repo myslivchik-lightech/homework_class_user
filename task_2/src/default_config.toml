@@ -1,0 +1,17 @@
+[base]
+debug = true
+secret_key = "django-insecure-v68gm#jd4$uz8k)7p46c3m=_vt@yz+yvzsl+ix-2x6z@a52win"
+allowed_host = []
+
+[database]
+name = "test_2"
+user = "postgres"
+password = "postgres"
+host = "localhost"
+port = 5432
+
+[storage]
+static_url = "/static/"
+media_url = "/media/"
+media_root = "cnd/media/"
+static_root = "cdn/static/"
