@@ -10,14 +10,13 @@ from services.api.dashboard.client.serializers.list import ListClientSerializer
 
 class ListClientView(ListAPIView):
     queryset = Client.objects.filter(
-        address__country__available=True
+        addresses__country__available=True
     ).prefetch_related(
         Prefetch(
-            'address',
+            'addresses',
             queryset=Address.objects.select_related('country').only(
                 'city', 'street', 'extra', 'country'
             ),
-            to_attr='addresses',
         )
     )
     serializer_class = ListClientSerializer

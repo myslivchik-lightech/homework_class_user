@@ -5,12 +5,12 @@ class Address(models.Model):
     client = models.ForeignKey(
         'client.Client',
         on_delete=models.CASCADE,
-        related_name='address',
+        related_name='addresses',
     )
     country = models.ForeignKey(
         'country.Country',
         on_delete=models.CASCADE,
-        related_name='address',
+        related_name='addresses',
     )
     city = models.CharField()
     street = models.CharField()
